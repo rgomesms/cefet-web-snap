@@ -125,11 +125,11 @@ Object.values(controls).forEach((control) => {
 })
 
 // Exercicio 4
-const filter = document.querySelector('#filtro-da-foto');
-const foto = document.querySelector('.foto-anotada > img');
+const filter = document.querySelector('#filtro-da-photo');
+const photo = document.querySelector('.photo-anotada > img');
 
 filter.addEventListener('change', () => {
-	foto.style.filter = filter.value;
+	photo.style.filter = filter.value;
 })
 
 //Exercicio 5
@@ -144,7 +144,9 @@ fileInput.addEventListener('change', (e) => {
 
 	const reader = new FileReader();
 	reader.addEventListener('load', (event) => {
-		foto.src = event.target.result;
+		let src = event.target.result;
+		if (src)
+			photo.image = src;
 	});
 	reader.readAsDataURL(file);
 
